@@ -5,9 +5,23 @@ void Menu::GotoXY(int nX, int nY) {
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), CursorPosition);
 }
 
+void Menu::CursorView(char show) // 커서 숨기기(0), 보이기(1)
+{
+	HANDLE hConsole;
+	CONSOLE_CURSOR_INFO ConsoleCursor;
+
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	ConsoleCursor.bVisible = show;
+	ConsoleCursor.dwSize = 1;
+
+	SetConsoleCursorInfo(hConsole, &ConsoleCursor);
+}
+
 int Menu::Main()
 {
-	system(" mode  con lines=150   cols=150 ");
+	CursorView(false);
+	system(" mode  con lines=45   cols=150 | title Tetris Game");
 	cout << "\n\n\n\n\n";
 	cout << "\t\t" << "■■■■■■■■■     ■■■■■■■■■     ■■■■■■■■■     ■■■■■■■■■     ■■     ■■■■■■■■■" << endl;
 	cout << "\t\t" << "        ■             ■                             ■             ■              ■     ■■     ■" << endl;
@@ -63,3 +77,41 @@ int Menu::Main()
 	}
 	return nSelect;
 }
+
+void Menu::Select(int nSelect)
+{
+	End myend;
+	switch (nSelect)
+	{
+	case 1:
+		//게임시작
+		break;
+	case 2:
+		//게임설명
+		break;
+	case 3:
+		//랭킹
+		break;
+	case 4:
+		myend.PrintEnd();
+		return;
+	default:
+		myend.PrintEnd();
+		return;
+	}
+}
+
+/*
+void GameTable::DrawGameTable()
+{
+	for (int i = 0; i < y; i++)
+	{
+		for (int j = 0; j < x; j++)
+		{
+			if (table[i][j] == 1) cout << "▩";
+			else cout << "  "; // 두칸
+		}
+		cout << "\n";
+	}
+}
+*/
