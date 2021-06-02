@@ -46,7 +46,7 @@ int Menu::Main()
 	int nSelect = 1;
 	int nC = 1, nY = 16;
 
-	while (nC != Enter)
+	while (nC != Space)
 	{
 		if (_kbhit()) {
 			nC = _getch();
@@ -100,18 +100,3 @@ void Menu::Select(int nSelect)
 		return;
 	}
 }
-
-/*
-void GameTable::DrawGameTable()
-{
-	for (int i = 0; i < y; i++)
-	{
-		for (int j = 0; j < x; j++)
-		{
-			if (table[i][j] == 1) cout << "¢Ì";
-			else cout << "  "; // µÎÄ­
-		}
-		cout << "\n";
-	}
-}
-*/
