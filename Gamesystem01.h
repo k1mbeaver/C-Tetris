@@ -3,7 +3,8 @@
 #include <vector>
 #include <windows.h>
 #include <conio.h>
-#include "End.h"
+#include "TableBlock.h"
+#include "GameMenu.h"
 
 using namespace std;
 enum action {Up = 72, Down = 80, Left = 75, Right = 77, Space = 32, Enter = 13};

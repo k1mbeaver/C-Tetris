@@ -81,13 +81,14 @@ int Menu::Main()
 void Menu::Select(int nSelect)
 {
 	End myend;
+	
 	switch (nSelect)
 	{
 	case 1:
 		//게임시작
 		break;
 	case 2:
-		//게임설명
+		GameWay();
 		break;
 	case 3:
 		//랭킹
