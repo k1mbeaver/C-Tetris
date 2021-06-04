@@ -1,11 +1,10 @@
 //C++를 이용하여 만드는 Tetris 게임입니다.
-#include "Gamesystem01.h"
+#include "GameSystem01.h"
 
 int main()
 {
 	Menu game;
-	int n = 0;
-	n = game.Main();
+	game.Select();
 
-	return 0;
+	cout << endl; return 0;
 }

@@ -1,4 +1,7 @@
 #include "Gamesystem01.h"
+#include "End.h"
+#include "GameMenu.h"
+#include "TableBlock.h"
 
 void Menu::GotoXY(int nX, int nY) {
 	COORD CursorPosition = { nX, nY };
@@ -42,6 +45,7 @@ int Menu::Main()
 	cout << "\t\t" << "                                             ================================" << endl;
 	cout << "\t\t" << "                                              4.           게임 종료" << endl;
 	cout << "\t\t" << "                                             ================================" << endl;
+	//위아래 방향키, 선택 스페이스 추가
 
 	int nSelect = 1;
 	int nC = 1, nY = 16;
@@ -78,26 +82,35 @@ int Menu::Main()
 	return nSelect;
 }
 
-void Menu::Select(int nSelect)
+void Menu::Select()
 {
 	End myend;
-	
-	switch (nSelect)
+	GameTable myTable(TABLE_X, TABLE_Y);
+	Qna myqna;
+
+	while (1)
 	{
-	case 1:
-		//게임시작
-		break;
-	case 2:
-		GameWay();
-		break;
-	case 3:
-		//랭킹
-		break;
-	case 4:
-		myend.PrintEnd();
-		return;
-	default:
-		myend.PrintEnd();
-		return;
+		int nCount = 0;
+		nCount = Main();
+		switch (nCount)
+		{
+		case 1:
+			//게임시작
+			system("cls");
+			continue;
+		case 2:
+			//게임방법 디자인 하고 구현
+			myqna.PrintMenu();
+			continue;
+		case 3:
+			//랭킹
+			continue;
+		case 4:
+			myend.PrintEnd();
+			return;
+		default:
+			myend.PrintEnd();
+			return;
+		}
 	}
 }
