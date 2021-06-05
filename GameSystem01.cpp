@@ -21,10 +21,16 @@ void Menu::CursorView(char show) // 커서 숨기기(0), 보이기(1)
 	SetConsoleCursorInfo(hConsole, &ConsoleCursor);
 }
 
+void Menu::textcolor(int nForeground)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), nForeground);
+}
+
 int Menu::Main()
 {
 	CursorView(false);
 	system(" mode  con lines=45   cols=150 | title Tetris Game");
+	textcolor(10);
 	cout << "\n\n\n\n\n";
 	cout << "\t\t" << "■■■■■■■■■     ■■■■■■■■■     ■■■■■■■■■     ■■■■■■■■■     ■■     ■■■■■■■■■" << endl;
 	cout << "\t\t" << "        ■             ■                             ■             ■              ■     ■■     ■" << endl;

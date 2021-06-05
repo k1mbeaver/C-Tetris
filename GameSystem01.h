@@ -9,6 +9,23 @@
 
 
 using namespace std;
+#define BLACK 0 
+#define BLUE 1 
+#define GREEN 2 
+#define CYAN 3 
+#define RED 4 
+#define MAGENTA 5 
+#define BROWN 6 
+#define LIGHTGRAY 7 
+#define DARKGRAY 8 
+#define LIGHTBLUE 9 
+#define LIGHTGREEN 10 
+#define LIGHTCYAN 11 
+#define LIGHTRED 12 
+#define LIGHTMAGENTA 13 
+#define YELLOW 14 
+#define WHITE 15 
+
 enum action { BExit = 69, SExit = 101, BNext = 78, SNext = 110, BPrev = 80, SPrev = 112, Up = 72, Down = 80, Left = 75, Right = 77, Space = 32, Enter = 13 };
 enum coordinates { END_Y = 6, TABLE_X = 10, TABLE_Y = 30 };
 
@@ -169,6 +186,7 @@ class Menu
 public:
 	void GotoXY(int nX, int nY);
 	void CursorView(char show);
+    void textcolor(int nForeground);
 	int Main();
 	void Select();
 };
