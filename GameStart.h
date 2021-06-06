@@ -2,7 +2,7 @@
 #include "GameSystem01.h"
 #include "TableBlock.h"
 
-//게임 설명 클래스 
+//게임 시작 클래스 
 class GameStart {
 private:
 public:

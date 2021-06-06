@@ -27,7 +27,7 @@ using namespace std;
 #define WHITE 15 
 
 enum action { BExit = 69, SExit = 101, BNext = 78, SNext = 110, BPrev = 80, SPrev = 112, Up = 72, Down = 80, Left = 75, Right = 77, Space = 32, Enter = 13 };
-enum coordinates { END_Y = 6, TABLE_X = 10, TABLE_Y = 30 };
+enum coordinates { END_Y = 6, TABLE_X = 15, TABLE_Y = 38 };
 
 //1¹ø ºí·°
 const int nBlock1[4][4][4] = {

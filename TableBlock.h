@@ -45,7 +45,7 @@ public:
 		}
 
 		//게임 종료
-		for (int nIndex = 1; nIndex < nX; nIndex++)
+		for (int nIndex = 1; nIndex < nX - 1; nIndex++)
 		{
 			table[END_Y][nIndex] = 5; // 게임 종료 선 5
 		}
@@ -117,7 +117,7 @@ public:
 		for (int nIndex = 0; nIndex < 4; nIndex++) {
 			for (int nJndex = 0; nJndex < 4; nJndex++) {
 				for (int nKndex = 0; nKndex < 4; nKndex++) {
-					nShape[nIndex][nJndex][nKndex] = nShape[nIndex][nJndex][nKndex]; // 블럭 객체 정보 저장
+					nShape[nIndex][nJndex][nKndex] = nBlock1[nIndex][nJndex][nKndex]; // 블럭 객체 정보 저장
 				}
 			}
 		}
@@ -133,7 +133,7 @@ public:
 		for (int nIndex = 0; nIndex < 4; nIndex++) {
 			for (int nJndex = 0; nJndex < 4; nJndex++) {
 				for (int nKndex = 0; nKndex < 4; nKndex++) {
-					nShape[nIndex][nJndex][nKndex] = nShape[nIndex][nJndex][nKndex]; // 블럭 객체 정보 저장
+					nShape[nIndex][nJndex][nKndex] = nBlock2[nIndex][nJndex][nKndex]; // 블럭 객체 정보 저장
 				}
 			}
 		}
@@ -149,7 +149,7 @@ public:
 		for (int nIndex = 0; nIndex < 4; nIndex) {
 			for (int nJndex = 0; nJndex < 4; nJndex++) {
 				for (int nKndex = 0; nKndex < 4; nKndex++) {
-					nShape[nIndex][nJndex][nKndex] = nShape[nIndex][nJndex][nKndex]; // 블럭 객체 정보 저장
+					nShape[nIndex][nJndex][nKndex] = nBlock3[nIndex][nJndex][nKndex]; // 블럭 객체 정보 저장
 				}
 			}
 		}
@@ -165,7 +165,7 @@ public:
 		for (int nIndex = 0; nIndex < 4; nIndex++) {
 			for (int nJndex = 0; nJndex < 4; nJndex++) {
 				for (int nKndex = 0; nKndex < 4; nKndex++) {
-					nShape[nIndex][nJndex][nKndex] = nShape[nIndex][nJndex][nKndex]; // 블럭 객체 정보 저장
+					nShape[nIndex][nJndex][nKndex] = nBlock4[nIndex][nJndex][nKndex]; // 블럭 객체 정보 저장
 				}
 			}
 		}
@@ -181,7 +181,7 @@ public:
 		for (int nIndex = 0; nIndex < 4; nIndex++) {
 			for (int nJndex = 0; nJndex < 4; nJndex++) {
 				for (int nKndex = 0; nKndex < 4; nKndex++) {
-					nShape[nIndex][nJndex][nKndex] = nShape[nIndex][nJndex][nKndex]; // 블럭 객체 정보 저장
+					nShape[nIndex][nJndex][nKndex] = nBlock5[nIndex][nJndex][nKndex]; // 블럭 객체 정보 저장
 				}
 			}
 		}

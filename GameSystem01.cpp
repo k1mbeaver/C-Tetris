@@ -2,6 +2,7 @@
 #include "End.h"
 #include "GameMenu.h"
 #include "TableBlock.h"
+#include "GameStart.h"
 
 void Menu::GotoXY(int nX, int nY) {
 	COORD CursorPosition = { nX, nY };
@@ -93,6 +94,7 @@ void Menu::Select()
 	End myend;
 	GameTable myTable(TABLE_X, TABLE_Y);
 	Qna myqna;
+	GameStart myStart;
 
 	while (1)
 	{
@@ -103,6 +105,7 @@ void Menu::Select()
 		case 1:
 			//게임시작
 			system("cls");
+			myStart.HowtoGame();
 			continue;
 		case 2:
 			//게임방법 디자인 하고 구현
