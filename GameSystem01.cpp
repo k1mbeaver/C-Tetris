@@ -98,14 +98,17 @@ void Menu::Select()
 
 	while (1)
 	{
+		int nDifficult = 0;
 		int nCount = 0;
 		nCount = Main();
 		switch (nCount)
 		{
 		case 1:
 			//게임시작
+			nDifficult = myStart.Difficulty();
 			system("cls");
-			myStart.HowtoGame();
+			myStart.HowtoGame(nDifficult);
+			myStart.returnGame();
 			continue;
 		case 2:
 			//게임방법 디자인 하고 구현
