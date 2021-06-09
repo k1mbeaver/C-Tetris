@@ -59,7 +59,11 @@ void GameStart::HowtoGame(int nDifficulty)
 				way->HardDrop();
 			}
 		}
-		if (way->isReachEnding()) return; // 종료 선에 닿으면 게임 종료
+		if (way->isReachEnding())
+		{
+
+			return;
+		}; // 종료 선에 닿으면 게임 종료
 		if (nSelect == Enter) return;
 		way->DeleteLinear();
 		mway->GotoXY(0, 0);
@@ -67,12 +71,7 @@ void GameStart::HowtoGame(int nDifficulty)
 	}
 }
 
-void GameStart::returnGame() { // 게임 종료
-	system("cls");
-	mway->GotoXY(10, 10);
-	cout << "GameOver!!";
-	delete way;
-}
+
 
 int GameStart::Difficulty() { // 난이도
 	system("cls");
@@ -129,4 +128,76 @@ int GameStart::Difficulty() { // 난이도
 		}
 	}
 	return nSelect;
+}
+
+void GameStart::GameEnd()
+{
+	int nC = 1;
+	delete way;
+	for (int nIndex = 5; nIndex > 0; nIndex--)
+	{
+		system("cls");
+		cout << "\n\n\n\n\n";
+		cout << "\t\t\t\t\t" << "@@@@@@@@@@@               @@@@@          @@@@@     @@@@@       @@@@@@@@@@@" << endl;
+		cout << "\t\t\t\t\t" << "@                       @       @        @    @   @    @       @" << endl;
+		cout << "\t\t\t\t\t" << "@                      @         @       @     @ @     @" << endl;
+		cout << "\t\t\t\t\t" << "@                     @           @      @      @      @       @" << endl;
+		cout << "\t\t\t\t\t" << "@    @@@@@@          @@@@@@@@@@@@@@@     @             @       @@@@@@@@@@@" << endl;
+		cout << "\t\t\t\t\t" << "@         @         @               @    @             @       @" << endl;
+		cout << "\t\t\t\t\t" << "@         @        @                 @   @             @       @" << endl;
+		cout << "\t\t\t\t\t" << "@         @       @                   @  @             @       @" << endl;
+		cout << "\t\t\t\t\t" << "@@@@@@@@@@@      @                     @ @             @       @@@@@@@@@@@" << endl;
+		cout << endl;
+		cout << "\t\t\t\t\t" << "@@@@@@@@@@@      @                      @  @@@@@@@@@@@@@       @@@@@@@@@@@" << endl;
+		cout << "\t\t\t\t\t" << "@         @        @                   @   @                   @        @" << endl;
+		cout << "\t\t\t\t\t" << "@         @          @               @     @                   @       @" << endl;
+		cout << "\t\t\t\t\t" << "@         @            @           @       @                   @      @" << endl;
+		cout << "\t\t\t\t\t" << "@         @              @       @         @@@@@@@@@@@@@       @@@@@@@" << endl;
+		cout << "\t\t\t\t\t" << "@         @                @   @           @                   @      @" << endl;
+		cout << "\t\t\t\t\t" << "@         @                  @             @                   @       @" << endl;
+		cout << "\t\t\t\t\t" << "@         @                                @                   @        @" << endl;
+		cout << "\t\t\t\t\t" << "@@@@@@@@@@@                                @@@@@@@@@@@@@       @         @" << endl;
+		Sleep(500);
+		if (nIndex == 5)
+		{
+			selectdifficulty.textcolor(1);
+		}
+		else if (nIndex == 4)
+		{
+			selectdifficulty.textcolor(14);
+		}
+		else if (nIndex == 3)
+		{
+			selectdifficulty.textcolor(4);
+		}
+		else if (nIndex == 2)
+		{
+			selectdifficulty.textcolor(6);
+		}
+		else if (nIndex == 1)
+		{
+			selectdifficulty.textcolor(15);
+		}
+	}
+	// 5번 색깔 바꾸고 그 다음 가운데 에서 점수 출력 하고 유지 후 입력받으면 넘어가게 코딩
+	cout << endl;
+	cout << endl;
+	cout << "\t\t" << "                                                           점수" << endl;
+	cout << "\t\t" << "                                             ================================" << endl;
+	cout << "\t\t" << "                                                  여기에 점수를 출력한다" << endl;
+	/*
+	if(점수가 최고 점수 일 경우)
+	cout << "\t\t" << "                                             ================================" << endl;
+	cout << "\t\t" << "                                             ☆★☆  신기록 점수 입니다!!! ☆★☆" << endl;
+	*/
+	cout << "\t\t" << "                                             ================================" << endl;
+	cout << "\t\t" << "                                                           Enter" << endl;
+	cout << "\t\t" << "                                             ================================" << endl;
+
+	while (nC != Enter)
+	{
+		if (_kbhit()) {
+			nC = _getch();
+		}
+	}
 }

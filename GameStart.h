@@ -10,7 +10,7 @@ public:
 	Menu* mway = 0;
 	Menu selectdifficulty;
 	void HowtoGame(int nDifficulty);
-	void returnGame(); // 게임 종료
 	int Difficulty();
+	void GameEnd();
 };
 //게임도움말

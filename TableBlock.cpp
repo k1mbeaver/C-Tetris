@@ -215,7 +215,7 @@ void GameTable::HardDrop() {
 }
 
 /*일직선 삭제*/
-void GameTable::DeleteLinear() {
+void GameTable::DeleteLinear() { // 여기에서 점수를 추가하는 방식으로 진행한다.
     for (int nY = END_Y + 1; nY < TABLE_Y - 1; nY++) {
         bool isLinear = true;
         for (int nX = 1; nX < TABLE_X - 1; nX++) {

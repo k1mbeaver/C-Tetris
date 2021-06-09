@@ -108,7 +108,7 @@ void Menu::Select()
 			nDifficult = myStart.Difficulty();
 			system("cls");
 			myStart.HowtoGame(nDifficult);
-			myStart.returnGame();
+			myStart.GameEnd();
 			continue;
 		case 2:
 			//게임방법 디자인 하고 구현
