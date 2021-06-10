@@ -3,6 +3,8 @@
 
 void GameStart::HowtoGame(int nDifficulty)
 {
+	int nGameScore = 0;
+	int nStack = 0;
 	way = new GameTable(TABLE_X, TABLE_Y); // 게임 판 그리기 객체 생성
 	way->createBlock(); // 초기 블럭 생성
 	way->DrawGameTable();
@@ -61,13 +63,20 @@ void GameStart::HowtoGame(int nDifficulty)
 		}
 		if (way->isReachEnding())
 		{
-
 			return;
 		}; // 종료 선에 닿으면 게임 종료
 		if (nSelect == Enter) return;
-		way->DeleteLinear();
+		//nStack = way->DeleteLinear();
+		if (way->DeleteLinear() == 1)
+		{
+			nGameScore = nGameScore + 1000;
+		}
 		mway->GotoXY(0, 0);
 		way->DrawGameTable();
+
+		cout << "    ┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐"<< endl;
+		cout << "    │   점수 : " << nGameScore  << "      │"<< endl;
+		cout << "    └ ─ ─ ─ ─ ─ ─ ─ ─ ┘" << endl;
 	}
 }
 

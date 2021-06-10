@@ -56,7 +56,7 @@ public:
 	void RotateBlock(); // 블럭 회전하기
 	void BuildBlock(); // 블럭 쌓기
 	void HardDrop(); // 빨리 떨어뜨리기(스페이스)
-	void DeleteLinear();
+	int DeleteLinear();
 	bool isReachEnding();
 };
 
