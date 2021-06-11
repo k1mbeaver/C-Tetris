@@ -3,7 +3,7 @@
 
 void GameStart::HowtoGame(int nDifficulty)
 {
-	int nGameScore = 0;
+	nGameScore = 0;
 	int nStack = 0;
 	way = new GameTable(TABLE_X, TABLE_Y); // 게임 판 그리기 객체 생성
 	way->createBlock(); // 초기 블럭 생성
@@ -75,7 +75,10 @@ void GameStart::HowtoGame(int nDifficulty)
 		way->DrawGameTable();
 
 		cout << "    ┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐"<< endl;
-		cout << "    │   점수 : " << nGameScore  << "      │"<< endl;
+		cout << "        점수 : " << nGameScore << endl;
+		cout << "    └ ─ ─ ─ ─ ─ ─ ─ ─ ┘" << endl;
+		cout << "    ┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐" << endl;
+		cout << "        HIGH : " << nGameScore << endl;
 		cout << "    └ ─ ─ ─ ─ ─ ─ ─ ─ ┘" << endl;
 	}
 }
@@ -169,23 +172,23 @@ void GameStart::GameEnd()
 		Sleep(500);
 		if (nIndex == 5)
 		{
-			selectdifficulty.textcolor(1);
+			
 		}
 		else if (nIndex == 4)
 		{
-			selectdifficulty.textcolor(14);
+			
 		}
 		else if (nIndex == 3)
 		{
-			selectdifficulty.textcolor(4);
+			
 		}
 		else if (nIndex == 2)
 		{
-			selectdifficulty.textcolor(6);
+			
 		}
 		else if (nIndex == 1)
 		{
-			selectdifficulty.textcolor(15);
+			
 		}
 	}
 	// 5번 색깔 바꾸고 그 다음 가운데 에서 점수 출력 하고 유지 후 입력받으면 넘어가게 코딩
@@ -193,7 +196,7 @@ void GameStart::GameEnd()
 	cout << endl;
 	cout << "\t\t" << "                                                           점수" << endl;
 	cout << "\t\t" << "                                             ================================" << endl;
-	cout << "\t\t" << "                                                  여기에 점수를 출력한다" << endl;
+	cout << "\t\t" << "                                                          " << nGameScore << endl;
 	/*
 	if(점수가 최고 점수 일 경우)
 	cout << "\t\t" << "                                             ================================" << endl;

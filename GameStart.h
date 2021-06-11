@@ -6,6 +6,7 @@
 class GameStart {
 private:
 public:
+	int nGameScore = 0;
 	GameTable* way = 0;
 	Menu* mway = 0;
 	Menu selectdifficulty;

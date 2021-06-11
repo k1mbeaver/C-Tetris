@@ -18,23 +18,23 @@ void End::PrintEnd()
 		Sleep(500);
 		if (nIndex == 5)
 		{
-			mymenu.textcolor(1);
+			
 		}
 		else if (nIndex == 4)
 		{
-			mymenu.textcolor(14);
+			
 		}
 		else if (nIndex == 3)
 		{
-			mymenu.textcolor(4);
+			
 		}
 		else if (nIndex == 2)
 		{
-			mymenu.textcolor(6);
+			
 		}
 		else if (nIndex == 1)
 		{
-			mymenu.textcolor(15);
+			
 		}
 	}
 }//Á¾·á

@@ -5,6 +5,5 @@ class End
 {
 public:
 	void PrintEnd();
-	Menu mymenu;
 };
 //Á¾·á

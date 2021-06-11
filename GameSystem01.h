@@ -6,28 +6,18 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
-
-
 using namespace std;
-#define BLACK 0 
-#define BLUE 1 
-#define GREEN 2 
-#define CYAN 3 
-#define RED 4 
-#define MAGENTA 5 
-#define BROWN 6 
-#define LIGHTGRAY 7 
-#define DARKGRAY 8 
-#define LIGHTBLUE 9 
-#define LIGHTGREEN 10 
-#define LIGHTCYAN 11 
-#define LIGHTRED 12 
-#define LIGHTMAGENTA 13 
-#define YELLOW 14 
-#define WHITE 15 
 
-enum action { BExit = 69, SExit = 101, BNext = 78, SNext = 110, BPrev = 80, SPrev = 112, Up = 72, Down = 80, Left = 75, Right = 77, Space = 32, Enter = 13 };
-enum coordinates { END_Y = 6, TABLE_X = 15, TABLE_Y = 38 };
+#define END_Y 6    // 게임 종료 선
+#define TABLE_X 15 //테트리스 판 x 축 길이
+#define TABLE_Y 38 //테트리스 판 y 축 길이
+
+#define Left 75 // ←
+#define Right 77  // →
+#define Up 72 // ↑
+#define Down 80 // ↓
+#define Space 32 // space
+#define Enter 13 // enter
 
 //1번 블럭
 const int nBlock1[4][4][4] = {
@@ -186,7 +176,6 @@ class Menu
 public:
 	void GotoXY(int nX, int nY);
 	void CursorView(char show);
-    void textcolor(int nForeground);
 	int Main();
 	void Select();
 };

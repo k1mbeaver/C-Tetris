@@ -1,5 +1,10 @@
 #include "GameMenu.h"
-
+#define BExit 69
+#define SExit 101
+#define BNext 78
+#define SNext 110
+#define BPrev 80
+#define SPrev 112
 void Qna::PrintMenu()
 {
 	int nCount = 0;
