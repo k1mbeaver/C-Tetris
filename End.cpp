@@ -15,26 +15,26 @@ void End::PrintEnd()
 		cout << "\t\t" << "■■■■■■■■■■                  ■                  ■■■■■■■■■■■" << endl;
 		cout << endl << endl;
 		cout << "\t\t" << "                           플 레 이 해 주 셔 서 감 사 합 니 다 !!!!                            ■■     ■■" << endl;
-		Sleep(500);
+		Sleep(300);
 		if (nIndex == 5)
 		{
-			
+			color.textcolor(BLUE, WHITE);
 		}
 		else if (nIndex == 4)
 		{
-			
+			color.textcolor(RED, WHITE);
 		}
 		else if (nIndex == 3)
 		{
-			
+			color.textcolor(GREEN, WHITE);
 		}
 		else if (nIndex == 2)
 		{
-			
+			color.textcolor(BROWN, WHITE);
 		}
 		else if (nIndex == 1)
 		{
-			
+			color.textcolor(BLACK, WHITE);
 		}
 	}
 }//종료

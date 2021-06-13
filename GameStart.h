@@ -8,8 +8,7 @@ private:
 public:
 	int nGameScore = 0;
 	GameTable* way = 0;
-	Menu* mway = 0;
-	Menu selectdifficulty;
+	Menu mway;
 	void HowtoGame(int nDifficulty);
 	int Difficulty();
 	void GameEnd();

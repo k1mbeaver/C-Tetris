@@ -63,15 +63,19 @@ void GameStart::HowtoGame(int nDifficulty)
 		}
 		if (way->isReachEnding())
 		{
+			delete way;
 			return;
-		}; // 종료 선에 닿으면 게임 종료
-		if (nSelect == Enter) return;
-		//nStack = way->DeleteLinear();
+		}
+		if (nSelect == Enter)
+		{
+			delete way;
+			return;
+		}
 		if (way->DeleteLinear() == 1)
 		{
 			nGameScore = nGameScore + 1000;
 		}
-		mway->GotoXY(0, 0);
+		mway.GotoXY(0, 0);
 		way->DrawGameTable();
 
 		cout << "    ┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐"<< endl;
@@ -118,20 +122,20 @@ int GameStart::Difficulty() { // 난이도
 			switch (nC) {
 			case Up:
 				if (nSelect > 1) {
-					selectdifficulty.GotoXY(90, nY);
+					mway.GotoXY(90, nY);
 					cout << "     ";
 					nY -= 2;
-					selectdifficulty.GotoXY(92, nY);
+					mway.GotoXY(92, nY);
 					cout << "☜";
 					nSelect--;
 				}
 				break;
 			case Down:
 				if (nSelect < 3) {
-					selectdifficulty.GotoXY(90, nY);
+					mway.GotoXY(90, nY);
 					cout << "     ";
 					nY += 2;
-					selectdifficulty.GotoXY(92, nY);
+					mway.GotoXY(92, nY);
 					cout << "☜";
 					nSelect++;
 				}
@@ -145,7 +149,6 @@ int GameStart::Difficulty() { // 난이도
 void GameStart::GameEnd()
 {
 	int nC = 1;
-	delete way;
 	for (int nIndex = 5; nIndex > 0; nIndex--)
 	{
 		system("cls");
@@ -169,26 +172,26 @@ void GameStart::GameEnd()
 		cout << "\t\t\t\t\t" << "@         @                  @             @                   @       @" << endl;
 		cout << "\t\t\t\t\t" << "@         @                                @                   @        @" << endl;
 		cout << "\t\t\t\t\t" << "@@@@@@@@@@@                                @@@@@@@@@@@@@       @         @" << endl;
-		Sleep(500);
+		Sleep(300);
 		if (nIndex == 5)
 		{
-			
+			mway.textcolor(BLUE, WHITE);
 		}
 		else if (nIndex == 4)
 		{
-			
+			mway.textcolor(RED, WHITE);
 		}
 		else if (nIndex == 3)
 		{
-			
+			mway.textcolor(GREEN, WHITE);
 		}
 		else if (nIndex == 2)
 		{
-			
+			mway.textcolor(BROWN, WHITE);
 		}
 		else if (nIndex == 1)
 		{
-			
+			mway.textcolor(BLACK, WHITE);
 		}
 	}
 	// 5번 색깔 바꾸고 그 다음 가운데 에서 점수 출력 하고 유지 후 입력받으면 넘어가게 코딩

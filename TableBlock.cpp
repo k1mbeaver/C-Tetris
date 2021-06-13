@@ -17,8 +17,10 @@ void GameTable::DrawGameTable()
 
 /*블럭 생성*/
 void GameTable::createBlock() {
-    srand((unsigned int)time(NULL));
-    int nSelect = rand() % 5 + 1; // 1 ~ 5 블럭
+    random_device rd;
+    mt19937_64 mt(rd());
+    uniform_int_distribution<int> range(1, 5);
+    int nSelect = range(mt); // 1 ~ 5 블럭
     if (nSelect == 1) blockObject = new Block1(); // 1번 블럭 생성
     else if (nSelect == 2)blockObject = new Block2(); // 2번 블럭 생성
     else if (nSelect == 3)blockObject = new Block3(); // 3번 블럭 생성
@@ -47,13 +49,13 @@ void GameTable::MoveBlock(int nKey) {
     backup::updateTable(table, backupTable); // table 백업
 
     /*테이블에서 블럭 객체 지우기*/
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            int Y = j + blockObject->getY();
-            int X = i + blockObject->getX();
-            if (Y < 0 || X < 0 || Y >= TABLE_Y || X >= TABLE_X) continue; // array out of range 방지
-            if (table[Y][X] == 2) { // 만약 블럭이면
-                table[Y][X] = 0; // 테이블에서 지운다
+    for (int nIndex = 0; nIndex < 4; nIndex++) {
+        for (int nJndex = 0; nJndex < 4; nJndex++) {
+            int nY = nJndex + blockObject->getY();
+            int nX = nIndex + blockObject->getX();
+            if (nY < 0 || nX < 0 || nY >= TABLE_Y || nX >= TABLE_X) continue; // array out of range 방지
+            if (table[nY][nX] == 2) { // 만약 블럭이면
+                table[nY][nX] = 0; // 테이블에서 지운다
             }
         }
     }
@@ -64,27 +66,27 @@ void GameTable::MoveBlock(int nKey) {
     else if (nKey == Right) blockObject->right(); // 만약 인자로 들어온 key가 오른쪽 방향이면 블럭을 오른쪽으로 이동
 
     /*이동한 블럭 상태를 테이블에 갱신 or 취소*/
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            int Y = j + blockObject->getY();
-            int X = i + blockObject->getX();
+    for (int nIndex = 0; nIndex < 4; nIndex++) {
+        for (int nJndex = 0; nJndex < 4; nJndex++) {
+            int nY = nJndex + blockObject->getY();
+            int nX = nIndex + blockObject->getX();
 
-            if (Y < 0 || X < 0 || Y >= TABLE_Y || X >= TABLE_X) continue; // array out of range 방지
+            if (nY < 0 || nX < 0 || nY >= TABLE_Y || nX >= TABLE_X) continue; // array out of range 방지
 
-            int blockValue = blockObject->getShape(blockObject->getRotationCount(), i, j); //블럭 배열 값 얻기
+            int blockValue = blockObject->getShape(blockObject->getRotationCount(), nIndex, nJndex); //블럭 배열 값 얻기
 
             if (blockValue != 2) continue; // 블럭이 아니면 무시 (블럭은 2로 이루어져있음)
 
-            if (table[Y][X] == 0) { // 빈공간이면 (갱신)
-                table[Y][X] = blockValue; // 블럭을 이동시킴
+            if (table[nY][nX] == 0) { // 빈공간이면 (갱신)
+                table[nY][nX] = blockValue; // 블럭을 이동시킴
             }
-            else if (table[Y][X] == 1) { // 블럭이 양 옆 벽면에 닿으면 (취소)
+            else if (table[nY][nX] == 1) { // 블럭이 양 옆 벽면에 닿으면 (취소)
                 copy(backupTable.begin(), backupTable.end(), table.begin()); // table 백업
                 blockObject->setX(backupBlock.getX()); // 블럭 x 좌표 백업
                 blockObject->setY(backupBlock.getY()); // 블럭 y 좌표 백업
                 return; // 함수 종료
             }
-            else if (table[Y][X] == 3) { // 이미 쌓여진 블럭과 접촉하면
+            else if (table[nY][nX] == 3) { // 이미 쌓여진 블럭과 접촉하면
                 copy(backupTable.begin(), backupTable.end(), table.begin()); // table 백업
                 blockObject->setX(backupBlock.getX()); // 블럭 x 좌표 백업
                 blockObject->setY(backupBlock.getY()); // 블럭 y 좌표 백업
@@ -94,7 +96,7 @@ void GameTable::MoveBlock(int nKey) {
                 }
                 return; // 함수 종료
             }
-            else if (table[Y][X] == 4) { //만약에 맨 밑바닥에 접촉했으면
+            else if (table[nY][nX] == 4) { //만약에 맨 밑바닥에 접촉했으면
                 copy(backupTable.begin(), backupTable.end(), table.begin()); // table 백업
                 blockObject->setX(backupBlock.getX()); // 블럭 x 좌표 백업
                 blockObject->setY(backupBlock.getY()); // 블럭 y 좌표 백업
@@ -136,21 +138,21 @@ void GameTable::RotateBlock() {
     blockObject->rotate(); // 블럭을 회전
 
     /*회전한 블럭 상태를 테이블에 갱신 및 취소*/
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            int Y = j + blockObject->getY();
-            int X = i + blockObject->getX();
+    for (int nIndex = 0; nIndex < 4; nIndex++) {
+        for (int nJndex = 0; nJndex < 4; nJndex++) {
+            int nY = nJndex + blockObject->getY();
+            int nX = nIndex + blockObject->getX();
 
-            if (Y < 0 || X < 0 || Y >= TABLE_Y || X >= TABLE_X) continue; // array out of range 방지
+            if (nY < 0 || nX < 0 || nY >= TABLE_Y || nX >= TABLE_X) continue; // array out of range 방지
 
-            int blockValue = blockObject->getShape(blockObject->getRotationCount(), i, j); //블럭 배열 값 얻기
+            int blockValue = blockObject->getShape(blockObject->getRotationCount(), nIndex, nJndex); //블럭 배열 값 얻기
 
             if (blockValue != 2) continue; // 블럭이 아니면 무시 (블럭은 2로 이루어져있음)
 
-            if (table[Y][X] == 0) { //빈공간인 경우에 이동한 블럭 정보를 테이블에 갱신
-                table[Y][X] = blockObject->getShape(blockObject->getRotationCount(), i, j);
+            if (table[nY][nX] == 0) { //빈공간인 경우에 이동한 블럭 정보를 테이블에 갱신
+                table[nY][nX] = blockObject->getShape(blockObject->getRotationCount(), nIndex, nJndex);
             }
-            else if (table[Y][X] == 1 || table[Y][X] == 3 || table[Y][X] == 4) { // 블럭&블럭, 블럭&벽 닿을 시 취소
+            else if (table[nY][nX] == 1 || table[nY][nX] == 3 || table[nY][nX] == 4) { // 블럭&블럭, 블럭&벽 닿을 시 취소
                 copy(backupTable.begin(), backupTable.end(), table.begin()); // table 백업
                 blockObject->setRotationCount(backupBlock.getRotationCount()); // 회전하기 전 상태로 백업
                 return; // 업데이트 취소

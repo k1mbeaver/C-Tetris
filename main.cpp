@@ -4,6 +4,7 @@
 int main()
 {
 	Menu game;
+	game.textcolor(BLACK, WHITE);
 	game.Select();
 
 	cout << endl; return 0;

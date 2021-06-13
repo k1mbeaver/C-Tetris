@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <cstdlib>
+#include <random>
 #include <ctime>
 #include <algorithm>
 using namespace std;
@@ -18,6 +19,9 @@ using namespace std;
 #define Down 80 // ¡é
 #define Space 32 // space
 #define Enter 13 // enter
+
+enum WantColor { BLACK = 0, BLUE = 1, GREEN = 2, CYAN = 3, RED = 4, MAGENTA = 5, BROWN = 6, LIGHTGRAY = 7, DARKGRAY = 8,
+                        LIGHTBLUE = 9, LIGHTGREEN = 10, LIGHTCYAN = 11, LIGHTRED = 12, LIGHTMAGENTA = 13, YELLOW = 14, WHITE = 15};
 
 //1¹ø ºí·°
 const int nBlock1[4][4][4] = {
@@ -178,4 +182,5 @@ public:
 	void CursorView(char show);
 	int Main();
 	void Select();
+    void textcolor(int foreground, int background);
 };
