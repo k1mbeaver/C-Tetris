@@ -1,2 +1,9 @@
 #pragma once
-//랭크점수판메뉴
+#include "GameSystem01.h"
+#include "tinyxml.h"
+
+class Rank {
+public:
+	void makeRank();
+	void readRank();
+};
