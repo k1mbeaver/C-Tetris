@@ -1,9 +1,11 @@
 #pragma once
 #include "GameSystem01.h"
-#include "tinyxml.h"
 
 class Rank {
 public:
-	void makeRank();
+	char chName = NULL;
+	void makeRankxml(char*  name, char* score);
+	void makeRank(char* name, char* score);
 	void readRank();
+	char makeName();
 };

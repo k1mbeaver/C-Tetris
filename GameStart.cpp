@@ -146,8 +146,9 @@ int GameStart::Difficulty() { // 난이도
 	return nSelect;
 }
 
-void GameStart::GameEnd()
+char* GameStart::GameEnd()
 {
+	// 점수를 문자열로 변환
 	int nC = 1;
 	for (int nIndex = 5; nIndex > 0; nIndex--)
 	{
@@ -215,4 +216,20 @@ void GameStart::GameEnd()
 			nC = _getch();
 		}
 	}
+
+	sprintf(chGameScore, "%d", nGameScore);
+	return chGameScore;
+}
+
+void GameStart::RecordRank(char* chGameScore)
+{
+	if (finddoc.LoadFile("score.xml") == NULL)
+	{
+		char chFirstMakeName = myrank.makeName();
+		myrank.makeRankxml(&chFirstMakeName, chGameScore);
+		return;
+	}
+	char chMakeName = myrank.makeName();
+	myrank.makeRank(&chMakeName, chGameScore);
+
 }

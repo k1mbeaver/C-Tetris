@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<DB>
+    <!--This is score DB-->
+    <Tetris>
+        <Ranking>
+            <System />
+            <GameRanking name="score" sллллллллллллллллллллdЗw="0" />
+        </Ranking>
+        <GameRanking name="score" kллллллллdЗw="0" />
+    </Tetris>
+</DB>

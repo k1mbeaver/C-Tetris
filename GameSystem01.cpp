@@ -94,6 +94,7 @@ void Menu::Select()
 
 	while (1)
 	{
+		char* chScore;
 		int nDifficult = 0;
 		int nCount = 0;
 		nCount = Main();
@@ -104,7 +105,8 @@ void Menu::Select()
 			nDifficult = myStart.Difficulty();
 			system("cls");
 			myStart.HowtoGame(nDifficult);
-			myStart.GameEnd();
+			chScore = myStart.GameEnd();
+			myStart.RecordRank(chScore);
 			continue;
 		case 2:
 			//게임방법 디자인 하고 구현
