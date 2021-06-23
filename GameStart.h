@@ -9,14 +9,14 @@ class GameStart {
 private:
 public:
 	int nGameScore = 0;
-	char chGameScore[255] = "\0";
+	char chGameScore[100] = "\0";
 	GameTable* way = 0;
 	Menu mway;
 	Rank myrank;
 	TiXmlDocument finddoc;
 	void HowtoGame(int nDifficulty);
 	int Difficulty();
-	char* GameEnd();
-	void RecordRank(char* chGameScore);
+	int GameEnd();
+	void RecordRank(int nScore);
 };
 //게임도움말

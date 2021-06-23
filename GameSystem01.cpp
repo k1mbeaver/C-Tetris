@@ -3,6 +3,7 @@
 #include "GameMenu.h"
 #include "TableBlock.h"
 #include "GameStart.h"
+#define SIZE 100
 
 void Menu::GotoXY(int nX, int nY) {
 	COORD CursorPosition = { nX, nY };
@@ -94,7 +95,7 @@ void Menu::Select()
 
 	while (1)
 	{
-		char* chScore;
+		int nSystemScore = 0;
 		int nDifficult = 0;
 		int nCount = 0;
 		nCount = Main();
@@ -105,8 +106,8 @@ void Menu::Select()
 			nDifficult = myStart.Difficulty();
 			system("cls");
 			myStart.HowtoGame(nDifficult);
-			chScore = myStart.GameEnd();
-			myStart.RecordRank(chScore);
+			nSystemScore = myStart.GameEnd();
+			myStart.RecordRank(nSystemScore);
 			continue;
 		case 2:
 			//게임방법 디자인 하고 구현

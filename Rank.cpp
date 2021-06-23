@@ -1,7 +1,7 @@
 #include "Rank.h"
 #include "tinyxml.h"
 
-void Rank::makeRankxml(char* name, char* score)
+void Rank::makeRankxml()
 {
 	//xml 선언
 	TiXmlDocument doc;
@@ -28,13 +28,11 @@ void Rank::makeRankxml(char* name, char* score)
 	//하위노드 및 속성 추가
 	pSubElem = new TiXmlElement("GameRanking");
 	pElem->LinkEndChild(pSubElem);
-	pSubElem->SetAttribute("name", "score");
-	pSubElem->SetAttribute(name, score);
 
 	doc.SaveFile("score.xml");
 }
 
-char Rank::makeName()
+char* Rank::makeName()
 {
 	cout << "이름을 입력하세요 : ";
 	cin >> chName;

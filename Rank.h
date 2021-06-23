@@ -3,9 +3,9 @@
 
 class Rank {
 public:
-	char chName = NULL;
-	void makeRankxml(char*  name, char* score);
+	char chName[100] = "\0";
+	void makeRankxml();
 	void makeRank(char* name, char* score);
 	void readRank();
-	char makeName();
+	char* makeName();
 };
