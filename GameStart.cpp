@@ -4,6 +4,7 @@
 void GameStart::HowtoGame(int nDifficulty)
 {
 	nGameScore = 0;
+	nHighScore = myrank.HighScore();
 	int nStack = 0;
 	way = new GameTable(TABLE_X, TABLE_Y); // 게임 판 그리기 객체 생성
 	way->createBlock(); // 초기 블럭 생성
@@ -82,7 +83,7 @@ void GameStart::HowtoGame(int nDifficulty)
 		cout << "        점수 : " << nGameScore << endl;
 		cout << "    └ ─ ─ ─ ─ ─ ─ ─ ─ ┘" << endl;
 		cout << "    ┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐" << endl;
-		cout << "        HIGH : " << nGameScore << endl;
+		cout << "        HIGH : " << nHighScore << endl;
 		cout << "    └ ─ ─ ─ ─ ─ ─ ─ ─ ┘" << endl;
 	}
 }
@@ -201,11 +202,6 @@ int GameStart::GameEnd()
 	cout << "\t\t" << "                                                           점수" << endl;
 	cout << "\t\t" << "                                             ================================" << endl;
 	cout << "\t\t" << "                                                          " << nGameScore << endl;
-	/*
-	if(점수가 최고 점수 일 경우)
-	cout << "\t\t" << "                                             ================================" << endl;
-	cout << "\t\t" << "                                             ☆★☆  신기록 점수 입니다!!! ☆★☆" << endl;
-	*/
 	cout << "\t\t" << "                                             ================================" << endl;
 	cout << "\t\t" << "                                                           Enter" << endl;
 	cout << "\t\t" << "                                             ================================" << endl;

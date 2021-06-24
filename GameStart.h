@@ -9,6 +9,7 @@ class GameStart {
 private:
 public:
 	int nGameScore = 0;
+	int nHighScore = 0;
 	char chGameScore[100] = "\0";
 	GameTable* way = 0;
 	Menu mway;

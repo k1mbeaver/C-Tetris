@@ -3,6 +3,7 @@
 #include "GameMenu.h"
 #include "TableBlock.h"
 #include "GameStart.h"
+#include "Rank.h"
 #define SIZE 100
 
 void Menu::GotoXY(int nX, int nY) {
@@ -92,6 +93,7 @@ void Menu::Select()
 	GameTable myTable(TABLE_X, TABLE_Y);
 	Qna myqna;
 	GameStart myStart;
+	Rank myRank;
 
 	while (1)
 	{
@@ -115,6 +117,7 @@ void Menu::Select()
 			continue;
 		case 3:
 			//·©Å·
+			myRank.readRank();
 			continue;
 		case 4:
 			myend.PrintEnd();
