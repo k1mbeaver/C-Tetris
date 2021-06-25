@@ -156,6 +156,7 @@ public:
 			table[END_Y][nIndex] = 5; // 게임 종료 선 5
 		}
 	}
+	Menu mymenu;
 	void DrawGameTable(); // 게임판 그리기
 	void createBlock(); // 블럭 생성
 	void MoveBlock(int nKey); // 블럭 움직이기

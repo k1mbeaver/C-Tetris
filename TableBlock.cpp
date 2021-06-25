@@ -8,7 +8,7 @@ void GameTable::DrawGameTable()
         {
             if (table[nIndex][nJndex] == 1 || table[nIndex][nJndex] == 4) cout << "¢Ì"; // °Ñ
             else if (table[nIndex][nJndex] == 2 || table[nIndex][nJndex] == 3) cout << "¡á"; // ºí·°
-            else if (table[nIndex][nJndex] == 5) cout << "¡Ø"; // Á¾·á ¼±
+            //else if (table[nIndex][nJndex] == 5) cout << "¡Ø"; // Á¾·á ¼±
             else cout << "  "; // µÎÄ­ ¶ç¿ì±â
         }
         cout << "\n";
